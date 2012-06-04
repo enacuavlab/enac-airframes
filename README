@@ -1,4 +1,21 @@
 Enac UAV lab
+===========
 
 config files for paparazzi UAVs
+
+
+How to use
+----------
+
+1. Extract both enac-airframes and paparazzi sources with git
+2. Make symbolic links like this:
+
+% ls
+enac-airframes  paparazzi
+% cd enac-airframes
+% ln -s ../paparazzi/conf/airframes/airframe.dtd airframe.dtd
+% cd ../paparazzi/conf/airframes
+% ln -s ../../../enac-airframes/private enac-airframes
+
+3. Place your airframe files in enac-airframes/private with a relative path to the dtd in enac-airframes
 
