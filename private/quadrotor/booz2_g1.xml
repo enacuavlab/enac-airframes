@@ -152,6 +152,10 @@
     <define name="THETA_DDGAIN" value=" 300"/>
     <define name="PSI_DDGAIN"   value=" 300"/>
 
+    <define name="PHI_AGAIN"   value=" 0"/>
+    <define name="THETA_AGAIN" value=" 0"/>
+    <define name="PSI_AGAIN"   value=" 0"/>
+
   </section>
 
   <section name="INS" prefix="INS_">
