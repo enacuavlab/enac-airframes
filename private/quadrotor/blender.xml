@@ -114,11 +114,21 @@
     <define name="H_Z" value=" 0.858336"/>
   </section>
 
+  <!-- Magnetic field for Gifhorn (declination 2°) -->
+  <!--section name="AHRS" prefix="AHRS_">
+    <define name="PROPAGATE_FREQUENCY" value="512"/>
+    <define name="PROPAGATE_LOW_PASS_RATES" value="1"/>
+    <define name="H_X" value="0.3794131"/>
+    <define name="H_Y" value="0.0141005"/>
+    <define name="H_Z" value="0.9251199"/>
+  </section-->
+
   <section name="INS" prefix="INS_">
     <!-- datasheet 1.4 mm/LSB : 0.0014*2^8 = 0.3584 -->
     <!-- calibration SENS = 1.156 :( -->
     <define name="BARO_SENS" value="1.156" integer="16"/>
     <define name="SONAR_SENS" value="0.0128633" integer="16"/>
+    <define name="SONAR_OFFSET" value="7"/>
     <define name="SONAR_MAX_RANGE" value="4.0"/>
     <define name="SONAR_THROTTLE_THRESHOLD" value="6200"/>
     <define name="SONAR_BARO_THRESHOLD" value="20."/>
@@ -162,25 +172,25 @@
     <define name="REF_MAX_RDOT" value="RadOfDeg(900.)"/>
 
     <!-- feedback -->
-    <define name="PHI_PGAIN"  value="800"/>
-    <define name="PHI_DGAIN"  value="200"/>
-    <define name="PHI_IGAIN"  value="60"/>
+    <define name="PHI_PGAIN"  value="1800"/>
+    <define name="PHI_DGAIN"  value="240"/>
+    <define name="PHI_IGAIN"  value="200"/>
 
-    <define name="THETA_PGAIN"  value="800"/>
-    <define name="THETA_DGAIN"  value="200"/>
-    <define name="THETA_IGAIN"  value="60"/>
+    <define name="THETA_PGAIN"  value="1800"/>
+    <define name="THETA_DGAIN"  value="240"/>
+    <define name="THETA_IGAIN"  value="200"/>
 
     <define name="PSI_PGAIN"  value="1000"/>
     <define name="PSI_DGAIN"  value="350"/>
     <define name="PSI_IGAIN"  value="20"/>
 
     <!-- feedforward -->
-    <define name="PHI_DDGAIN"   value="250"/>
-    <define name="THETA_DDGAIN" value="250"/>
-    <define name="PSI_DDGAIN"   value="200"/>
+    <define name="PHI_DDGAIN"   value="170"/>
+    <define name="THETA_DDGAIN" value="170"/>
+    <define name="PSI_DDGAIN"   value="170"/>
 
-    <define name="PHI_AGAIN"   value="250"/>
-    <define name="THETA_AGAIN" value="250"/>
+    <define name="PHI_AGAIN"   value="0"/>
+    <define name="THETA_AGAIN" value="0"/>
     <define name="PSI_AGAIN"   value="0"/>
   </section>
 
@@ -191,23 +201,25 @@
    <define name="MIN_ERR_ZD"   value="SPEED_BFP_OF_REAL(-10.)"/>
    <define name="MAX_ERR_ZD"   value="SPEED_BFP_OF_REAL( 10.)"/>
    <define name="MAX_SUM_ERR"  value="2000000"/>
-   <define name="REF_MIN_ZDD"  value="-1.2*9.81"/>
-   <define name="REF_MAX_ZDD"  value=" 0.8*9.81"/>
+   <define name="REF_MIN_ZDD"  value="-0.5*9.81"/>
+   <define name="REF_MAX_ZDD"  value=" 0.5*9.81"/>
    <define name="REF_MIN_ZD"   value="-1.5"/>
    <define name="REF_MAX_ZD"   value=" 1.5"/>
-   <define name="HOVER_KP"     value="500"/>
-   <define name="HOVER_KD"     value="250"/>
+   <define name="HOVER_KP"     value="130"/>
+   <define name="HOVER_KD"     value="80"/>
    <define name="HOVER_KI"     value="0"/>
    <!-- SPEED_BFP_OF_REAL(1.5) / (MAX_PPRZ/2) -->
    <define name="RC_CLIMB_COEF" value ="163"/>
    <!-- SPEED_BFP_OF_REAL(1.5) * 20% -->
    <define name="RC_CLIMB_DEAD_BAND" value ="160000"/>
+   <define name="ADAPT_NOISE_FACTOR" value="1.5"/>
   </section>
 
  <section name="GUIDANCE_H" prefix="GUIDANCE_H_">
+   <define name="MAX_BANK" value="30" unit="deg"/>
    <define name="PGAIN" value="50"/>
-   <define name="DGAIN" value="100"/>
-   <define name="IGAIN" value="15"/>
+   <define name="DGAIN" value="80"/>
+   <define name="IGAIN" value="20"/>
    <define name="NGAIN" value="0"/>
    <!-- feedforward -->
    <define name="AGAIN" value="0"/>
